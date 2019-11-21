@@ -1,0 +1,49 @@
+CREATE DATABASE AccentureAcademyBooks;
+GO
+
+USE AccentureAcademyBooks;
+GO
+
+CREATE TABLE Libro
+(
+	Id int primary key identity(1,1),
+	Nombre varchar(60) not null,
+	Autor varchar(50) not null,
+	Formato varchar(15) not null,
+	FechaDePublicacion datetime2 not null,
+	Idioma varchar not null,
+	ISBN int not null,
+	NumeroDePaginas int not null,
+	Editorial varchar(25)not null,
+
+	CONSTRAINT UQ_ISBN UNIQUE (ISBN)
+);
+
+CREATE TABLE Genero
+(	
+	Id int primary key identity(1,1),
+	Idiomas varchar(20) not null
+	Literario varchar(20) not null,
+	Especializado varchar(20) not null,
+	
+);
+
+CREATE TABLE Editorial
+(
+	Id int primary key identity(1,1),
+	Nombre varchar(25) not null,
+	PaisDeOrigen varchar(25) not null,
+	Especialidad varchar(25) not null,
+	FechaDeFundacion datetime2 not null,
+)
+
+CREATE TABLE Autor
+(
+	Id int primary key identity(1,1),
+	Nombre varchar(25) not null,
+	Apellido varchar(25) not null,
+	Nacionalidad varchar(25) not null,
+	LenguaMaterna varchar(25) not null,
+	FechaDeNacimiento datetime2 not null,
+	AreaDeEspecialidad varchar(25) not null,
+);

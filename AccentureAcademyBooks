@@ -10,7 +10,7 @@ CREATE TABLE Libro
 	Nombre varchar(60) not null,
 	Autor varchar(50) not null,
 	Formato varchar(15) not null,
-	FechaDePublicacion datetime2 not null,
+	FechaDePublicacion date not null,
 	Idioma varchar not null,
 	ISBN int not null,
 	NumeroDePaginas int not null,
@@ -22,9 +22,9 @@ CREATE TABLE Libro
 CREATE TABLE Genero
 (	
 	Id int primary key identity(1,1),
-	Idiomas varchar(20) not null
+	Idiomas varchar(20) not null,
 	Literario varchar(20) not null,
-	Especializado varchar(20) not null,
+	Especializado varchar(20) not null
 	
 );
 
@@ -34,7 +34,7 @@ CREATE TABLE Editorial
 	Nombre varchar(25) not null,
 	PaisDeOrigen varchar(25) not null,
 	Especialidad varchar(25) not null,
-	FechaDeFundacion datetime2 not null,
+	FechaDeFundacion date not null
 )
 
 CREATE TABLE Autor
@@ -44,6 +44,6 @@ CREATE TABLE Autor
 	Apellido varchar(25) not null,
 	Nacionalidad varchar(25) not null,
 	LenguaMaterna varchar(25) not null,
-	FechaDeNacimiento datetime2 not null,
-	AreaDeEspecialidad varchar(25) not null,
+	FechaDeNacimiento date not null,
+	AreaDeEspecialidad varchar(25) not null
 );

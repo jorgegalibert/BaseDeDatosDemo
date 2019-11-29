@@ -1,6 +1,6 @@
 CREATE DATABASE AccentureAcademyBooks;
 GO
-
+--DROP DATABASE AccentureAcademyBooks
 USE AccentureAcademyBooks;
 GO
 
@@ -46,4 +46,30 @@ CREATE TABLE Autor
 	LenguaMaterna varchar(25) not null,
 	FechaDeNacimiento date not null,
 	AreaDeEspecialidad varchar(25) not null
+);
+
+Create Table EscritoPor
+(	
+	Autor_Id int,
+	Libro_Id int,
+	CONSTRAINT FK_AUTOR FOREIGN KEY (Autor_Id) 
+		REFERENCES Autor(Id)
+		ON DELETE CASCADE,
+	CONSTRAINT FK_LIBRO FOREIGN KEY (Libro_Id) 
+		REFERENCES Libro(Id)
+		ON DELETE CASCADE,
+	CONSTRAINT PK_ESCRITO_POR PRIMARY KEY(Autor_Id, Libro_Id)
+);
+
+Create Table PublicadoPor
+(	
+	Editorial_Id int,
+	Libro_Id int,
+	CONSTRAINT FK_EDITORIAL FOREIGN KEY (Editorial_Id) 
+		REFERENCES Autor(Id)
+		ON DELETE CASCADE,
+	CONSTRAINT FK_LIRBO FOREIGN KEY (Libro_Id) 
+		REFERENCES Libro(Id)
+		ON DELETE CASCADE,
+	CONSTRAINT PK_PUBLICADO_POR PRIMARY KEY(Editorial_Id, Libro_Id)
 );
